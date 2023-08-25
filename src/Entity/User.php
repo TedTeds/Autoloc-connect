@@ -42,7 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $Prenom = null;
 
-    #[ORM\OneToMany(mappedBy: 'Users', targetEntity: Commentaire::class)]
+    #[ORM\OneToMany(mappedBy: 'users', targetEntity: Commentaire::class)]
     private Collection $commentaires;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]

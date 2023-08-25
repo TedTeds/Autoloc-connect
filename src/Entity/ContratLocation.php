@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\ContratLocationRepository;
+use App\Entity\User;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ContratLocationRepository;
 
 #[ORM\Entity(repositoryClass: ContratLocationRepository::class)]
 class ContratLocation
@@ -21,7 +22,7 @@ class ContratLocation
     private ?\DateTimeInterface $DateFin = null;
 
     #[ORM\ManyToOne(inversedBy: 'contratLocations')]
-    private ?user $users = null;
+    private ?User $users = null;
 
     public function getId(): ?int
     {
@@ -52,12 +53,12 @@ class ContratLocation
         return $this;
     }
 
-    public function getUsers(): ?user
+    public function getUsers(): ?User
     {
         return $this->users;
     }
 
-    public function setUsers(?user $users): static
+    public function setUsers(?User $users): static
     {
         $this->users = $users;
 

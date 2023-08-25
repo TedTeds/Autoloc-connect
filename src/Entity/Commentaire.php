@@ -14,10 +14,10 @@ class Commentaire
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $User = null;
+    private ?string $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'commentaires')]
-    private ?User $Users = null;
+    private ?User $users = null;
 
     public function getId(): ?int
     {
@@ -26,24 +26,24 @@ class Commentaire
 
     public function getUser(): ?string
     {
-        return $this->User;
+        return $this->user;
     }
 
-    public function setUser(string $User): static
+    public function setUser(string $user): static
     {
-        $this->User = $User;
+        $this->user = $user;
 
         return $this;
     }
 
     public function getUsers(): ?User
     {
-        return $this->Users;
+        return $this->users;
     }
 
-    public function setUsers(?User $Users): static
+    public function setUsers(?User $users): static
     {
-        $this->Users = $Users;
+        $this->users = $users;
 
         return $this;
     }
